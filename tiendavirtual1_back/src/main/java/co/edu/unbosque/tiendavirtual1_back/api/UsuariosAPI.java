@@ -51,12 +51,19 @@ public class UsuariosAPI {
 	}
 	
 	@PostMapping(path="/login")
-	ResponseEntity<String> login(@RequestBody Usuarios usuarios) {
+	public String login(@RequestBody Usuarios usuarios) {
 		Optional<Usuarios> a = usuariosDAO.findByUsuarioAndPassword(usuarios.getUsuario(), usuarios.getPassword());
+		String status = new String();
 		if (a.isPresent()) {
-			return ResponseEntity.status(HttpStatus.OK).body("Ingreso exitoso");
+			status = "{\"status\":\"true\"}";
 		}else {
-		return ResponseEntity.badRequest().body("Usuario y contraseña incorrectos");
+			status = "{\"status\":\"false\"}";
 		}
+		return status;
+	}
+	
+	@GetMapping(path="/consultar/{id}")
+	public @ResponseBody Optional<Usuarios> consultar(@PathVariable("id") Long id) {
+		return usuariosDAO.findById(id);
 	}
 }
