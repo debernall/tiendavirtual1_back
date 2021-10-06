@@ -62,8 +62,9 @@ public class UsuariosAPI {
 		return status;
 	}
 	
-	@GetMapping(path="/consultar/{id}")
-	public @ResponseBody Optional<Usuarios> consultar(@PathVariable("id") Long id) {
-		return usuariosDAO.findById(id);
+	@PostMapping(path="/consultar")
+	public @ResponseBody Optional<Usuarios> consultar(@RequestBody Usuarios usuarios) {
+		Long cedula_usuario = usuarios.getCedula_usuario();
+		return usuariosDAO.findById(cedula_usuario);
 	}
 }
