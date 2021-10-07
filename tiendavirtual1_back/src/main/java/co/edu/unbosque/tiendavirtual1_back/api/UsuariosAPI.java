@@ -40,12 +40,13 @@ public class UsuariosAPI {
 		return (List<Usuarios>) usuariosDAO.findAll();
 	}
 
-	@DeleteMapping("/eliminar/{id}")
-	public void eliminar(@PathVariable("id") Long id) {
+	@DeleteMapping(path="/eliminar")
+	public void eliminar(@RequestBody Usuarios usuario) {
+		long id = usuario.getCedula_usuario();
 		usuariosDAO.deleteById(id);
 	}
 
-	@PutMapping("/actualizar")
+	@PutMapping(path="/actualizar")
 	public void actualizar(@RequestBody Usuarios usuarios) {
 		usuariosDAO.save(usuarios);
 	}
