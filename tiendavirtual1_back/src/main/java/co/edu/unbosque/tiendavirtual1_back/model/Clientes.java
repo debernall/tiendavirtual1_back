@@ -1,7 +1,5 @@
 package co.edu.unbosque.tiendavirtual1_back.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,7 +7,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "clientes")
-public class Clientes implements Serializable{
+public class Clientes {
 	
 	@Id
 	@Column(unique = true, nullable = false)

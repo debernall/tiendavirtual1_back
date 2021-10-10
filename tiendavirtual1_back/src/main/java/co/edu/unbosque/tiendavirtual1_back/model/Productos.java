@@ -1,15 +1,13 @@
 package co.edu.unbosque.tiendavirtual1_back.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
-public class Productos implements Serializable{
+@Table(name = "productos")
+public class Productos {
 	
 	@Id
 	private String nombre_producto;
