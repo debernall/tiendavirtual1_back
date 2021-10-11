@@ -16,13 +16,17 @@ import co.edu.unbosque.tiendavirtual1_back.model.Productos;
 
 
 @RestController //esta es una clase REST
-@RequestMapping("produsctos")
-
+@RequestMapping(path="/productos")
 public class ProductosAPI {
 	
 	@Autowired //inyecta la dependencia de todos los mÃ©todos del JPA para ProveedoresDAO
 	private ProductosDAO productosDAO;
 
+	@PostMapping(path="/guardar")//Request convierte en un objeto Java desde un JSon
+	public void guardar(@RequestBody Productos productos) {
+		productosDAO.save(productos);
+	}
+	
 	@GetMapping(path="/listar")
 	public @ResponseBody Iterable<Productos> listar(){
 		return (List<Productos>) productosDAO.findAll();

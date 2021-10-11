@@ -10,68 +10,79 @@ import javax.persistence.Table;
 public class Productos {
 	
 	@Id
+	@Column(unique = true, nullable = false)
+	private long codigo_producto;
 	private String nombre_producto;
-	private long NITproveedor;
+	private long nitproveedor;
 	private long precio_compra;
 	private long iva_compra;
 	private long precio_venta;
-	@Column(unique = true, nullable = false)
-	private long codigo_producto;
-	
-	
 	
 	public Productos() {
 		super();
-	
+		// TODO Auto-generated constructor stub
 	}
-	
-	public Productos(String nombre_producto, long nITproveedor, long precio_compra, long iva_compra, long precio_venta,
-			long codigo_producto) {
+
+	public Productos(long codigo_producto, String nombre_producto, long nitproveedor, long precio_compra,
+			long iva_compra, long precio_venta) {
 		super();
+		this.codigo_producto = codigo_producto;
 		this.nombre_producto = nombre_producto;
-		this.NITproveedor = nITproveedor;
+		this.nitproveedor = nitproveedor;
 		this.precio_compra = precio_compra;
 		this.iva_compra = iva_compra;
 		this.precio_venta = precio_venta;
-		this.codigo_producto = codigo_producto;
 	}
-	
+
 	public long getCodigo_producto() {
 		return codigo_producto;
 	}
+
 	public void setCodigo_producto(long codigo_producto) {
 		this.codigo_producto = codigo_producto;
 	}
+
 	public String getNombre_producto() {
 		return nombre_producto;
 	}
+
 	public void setNombre_producto(String nombre_producto) {
 		this.nombre_producto = nombre_producto;
 	}
-	public long getNITproveedor() {
-		return NITproveedor;
+
+	public long getNitproveedor() {
+		return nitproveedor;
 	}
-	public void setNITproveedor(long NITproveedor) {
-		this.NITproveedor = NITproveedor;
+
+	public void setNitproveedor(long nitproveedor) {
+		this.nitproveedor = nitproveedor;
 	}
+
 	public long getPrecio_compra() {
 		return precio_compra;
 	}
+
 	public void setPrecio_compra(long precio_compra) {
 		this.precio_compra = precio_compra;
 	}
+
 	public long getIva_compra() {
 		return iva_compra;
 	}
+
 	public void setIva_compra(long iva_compra) {
 		this.iva_compra = iva_compra;
 	}
+
 	public long getPrecio_venta() {
 		return precio_venta;
 	}
+
 	public void setPrecio_venta(long precio_venta) {
 		this.precio_venta = precio_venta;
 	}
+	
+	
 	
 
 }
