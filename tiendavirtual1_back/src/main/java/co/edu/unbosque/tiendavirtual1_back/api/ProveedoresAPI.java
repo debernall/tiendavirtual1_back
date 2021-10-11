@@ -17,7 +17,7 @@ import co.edu.unbosque.tiendavirtual1_back.dao.ProveedoresDAO;
 import co.edu.unbosque.tiendavirtual1_back.model.Proveedores;
 
 @RestController //esta es una clase REST
-@RequestMapping(path="/proveedores")
+@RequestMapping(path="proveedores")
 
 public class ProveedoresAPI {
 	
