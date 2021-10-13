@@ -1,9 +1,17 @@
 package co.edu.unbosque.tiendavirtual1_back.model;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name = "proveedores")
@@ -16,6 +24,8 @@ public class Proveedores {
 	private String ciudad;
 	private String direccion_proveedor;
 	private long telefono_proveedor;
+	@OneToMany(mappedBy="proveedor", cascade=CascadeType.ALL)
+	private List<Productos> productos = new ArrayList<>();
 	
 	
 	public Proveedores() {
@@ -23,10 +33,11 @@ public class Proveedores {
 		
 	}
 
-	public Proveedores(long NIT_proveedor, String nombre_proveedor, String ciudad, String direccion_proveedor,
+	
+	public Proveedores(long nIT_proveedor, String nombre_proveedor, String ciudad, String direccion_proveedor,
 			long telefono_proveedor) {
 		super();
-		this.NIT_proveedor = NIT_proveedor;
+		NIT_proveedor = nIT_proveedor;
 		this.nombre_proveedor = nombre_proveedor;
 		this.ciudad = ciudad;
 		this.direccion_proveedor = direccion_proveedor;
@@ -63,5 +74,4 @@ public class Proveedores {
 	public void setTelefono_proveedor(long telefono_proveedor) {
 		this.telefono_proveedor = telefono_proveedor;
 	}
-
 }
