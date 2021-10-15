@@ -68,4 +68,15 @@ public class UsuariosAPI {
 		Long cedula_usuario = usuarios.getCedula_usuario();
 		return usuariosDAO.findById(cedula_usuario);
 	}
+	
+	@PostMapping(path="/traerid")
+	public @ResponseBody Usuarios traerid(@RequestBody Usuarios usuarios) {
+		Optional<Usuarios> a = usuariosDAO.findByUsuarioAndPassword(usuarios.getUsuario(), usuarios.getPassword());
+		if (a.isPresent()) {
+			return a.get();
+		}else {
+			Usuarios c = new Usuarios();
+			return c;
+		}
+	}
 }

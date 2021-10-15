@@ -7,7 +7,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +22,7 @@ public class Ventas implements Serializable{
 	@Id
 	@Column(unique = true, nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long codigo_venta;
+	private long codigoventa;
 	@ManyToOne
 	@JoinColumn(name = "clientes_id", nullable = false)
 	private Clientes cliente;
@@ -40,10 +39,10 @@ public class Ventas implements Serializable{
 		super();
 	}
 
-	public Ventas(long codigo_venta, Clientes cliente, Usuarios usuario, long ivaventa, long total_venta,
+	public Ventas(long codigoventa, Clientes cliente, Usuarios usuario, long ivaventa, long total_venta,
 			long valor_venta) {
 		super();
-		this.codigo_venta = codigo_venta;
+		this.codigoventa = codigoventa;
 		this.cliente = cliente;
 		this.usuario = usuario;
 		this.ivaventa = ivaventa;
@@ -51,11 +50,11 @@ public class Ventas implements Serializable{
 		this.valor_venta = valor_venta;
 	}
 	
-	public long getCodigo_venta() {
-		return codigo_venta;
+	public long getCodigoventa() {
+		return codigoventa;
 	}
-	public void setCodigo_venta(long codigo_venta) {
-		this.codigo_venta = codigo_venta;
+	public void setCodigoventa(long codigoventa) {
+		this.codigoventa = codigoventa;
 	}
 	public Clientes getCliente() {
 		return cliente;

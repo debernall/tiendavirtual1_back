@@ -7,5 +7,6 @@ import co.edu.unbosque.tiendavirtual1_back.model.Ventas;
 
 @Repository
 public interface VentasDAO extends JpaRepository<Ventas, Long>{
-
+	
+	Ventas findTopByOrderByCodigoventaDesc();
 }

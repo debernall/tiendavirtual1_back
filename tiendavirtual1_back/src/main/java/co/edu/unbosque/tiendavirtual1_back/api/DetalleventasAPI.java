@@ -17,7 +17,7 @@ import co.edu.unbosque.tiendavirtual1_back.dao.DetalleventasDAO;
 import co.edu.unbosque.tiendavirtual1_back.model.Detalleventas;
 
 @RestController //esta es una clase REST
-@RequestMapping(path="/detalle_ventas")
+@RequestMapping(path="/detalleventas")
 public class DetalleventasAPI {
 	
 	@Autowired //inyecta la dependencia de todos los mÃ©todos del JPA para usuarioDAO

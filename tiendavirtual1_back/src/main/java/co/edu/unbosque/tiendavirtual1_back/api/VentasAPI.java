@@ -24,8 +24,9 @@ public class VentasAPI {
 	private VentasDAO ventasDAO;
 	
 	@PostMapping(path="/guardar")//Request convierte en un objeto Java desde un JSon
-	public void guardar(@RequestBody Ventas ventas) {
+	public @ResponseBody long guardar(@RequestBody Ventas ventas) {
 		ventasDAO.save(ventas);
+		return ventasDAO.findTopByOrderByCodigoventaDesc().getCodigoventa();
 	}
 
 	@GetMapping(path="/listar")
@@ -35,7 +36,7 @@ public class VentasAPI {
 
 	@DeleteMapping(path="/eliminar")
 	public void eliminar(@RequestBody Ventas ventas) {
-		long id = ventas.getCodigo_venta();
+		long id = ventas.getCodigoventa();
 		ventasDAO.deleteById(id);
 	}
 
@@ -47,7 +48,7 @@ public class VentasAPI {
 	
 	@PostMapping(path="/consultar")
 	public @ResponseBody Optional<Ventas> consultar(@RequestBody Ventas ventas) {
-		Long codigo_venta = ventas.getCodigo_venta();
+		Long codigo_venta = ventas.getCodigoventa();
 		return ventasDAO.findById(codigo_venta);
 	}
 }
