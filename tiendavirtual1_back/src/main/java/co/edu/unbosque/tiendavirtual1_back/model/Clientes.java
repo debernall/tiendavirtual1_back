@@ -1,5 +1,6 @@
 package co.edu.unbosque.tiendavirtual1_back.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "clientes")
-public class Clientes {
+public class Clientes implements Serializable{
 	
 	@Id
 	@Column(unique = true, nullable = false)
@@ -70,6 +71,7 @@ public class Clientes {
 	public void setTelefono_cliente(long telefono_cliente) {
 		this.telefono_cliente = telefono_cliente;
 	}
+
 	
 
 }

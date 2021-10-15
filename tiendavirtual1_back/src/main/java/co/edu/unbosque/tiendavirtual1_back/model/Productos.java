@@ -1,5 +1,6 @@
 package co.edu.unbosque.tiendavirtual1_back.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,13 +17,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "productos")
-public class Productos {
+public class Productos implements Serializable {
 	
 	@Id
 	@Column(unique = true, nullable = false)
 	private long codigo_producto;
 	private String nombre_producto;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "proveedores_id", nullable=false)
 	private Proveedores proveedor;
 	private long precio_compra;
@@ -96,7 +97,6 @@ public class Productos {
 	public void setPrecio_venta(long precio_venta) {
 		this.precio_venta = precio_venta;
 	}
-	
 	
 	
 

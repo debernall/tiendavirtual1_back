@@ -1,5 +1,6 @@
 package co.edu.unbosque.tiendavirtual1_back.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "usuarios")
-public class Usuarios {
+public class Usuarios implements Serializable{
 	@Id
 	@Column(unique = true, nullable = false)
 	private long cedula_usuario;
