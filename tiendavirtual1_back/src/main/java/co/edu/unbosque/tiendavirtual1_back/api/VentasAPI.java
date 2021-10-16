@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unbosque.tiendavirtual1_back.dao.VentasDAO;
+import co.edu.unbosque.tiendavirtual1_back.model.Clientes;
 import co.edu.unbosque.tiendavirtual1_back.model.Ventas;
 
 @RestController //esta es una clase REST
@@ -51,4 +52,5 @@ public class VentasAPI {
 		Long codigo_venta = ventas.getCodigoventa();
 		return ventasDAO.findById(codigo_venta);
 	}
+	
 }
